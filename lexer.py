@@ -1,17 +1,22 @@
 from sly import Lexer
 
 
-class BasicLexer(Lexer):
-    tokens = {NAME, NUMBER, STRING, IF, ELSE, FOR, FUNC, EQEQ}
+class Fluffy_Lexer(Lexer):
+    tokens = {NAME, NUMBER, STRING, IF, THEN, ELSE, FOR, FUN, TO, ARROW, EQEQ, EXIT}
     ignore = '\t '
 
-    literals = { '=', '+', '-', '/', '*', '(', ')', ',', ';'}
-    # Define Tokens
-    NAME = r'[a-zA-Z_][a-zA-Z0-9_]*'
+    literals = {'=', '+', '-', '/', '*', '(', ')', ',', ';'}
+
+    # Define tokens
     IF = r'if'
+    THEN = r'then'
     ELSE = r'else'
     FOR = r'for'
-    FUNC = r'func'
+    FUN = r'fun'
+    TO = r'to'
+    EXIT = r'exit'
+    ARROW = r'->'
+    NAME = r'[a-zA-Z_][a-zA-Z0-9_]*'
     STRING = r'\".*?\"'
 
     EQEQ = r'=='
@@ -21,7 +26,7 @@ class BasicLexer(Lexer):
         t.value = int(t.value)
         return t
 
-    @_(r'//.*')
+    @_(r'#.*')
     def COMMENT(self, t):
         pass
 
@@ -31,7 +36,7 @@ class BasicLexer(Lexer):
 
 
 if __name__ == '__main__':
-    lexer = BasicLexer()
+    lexer = Lexer()
     env = {}
     while True:
         try:
@@ -40,5 +45,5 @@ if __name__ == '__main__':
             break
         if text:
             lex = lexer.tokenize(text)
-            for token in lex:
-                print(token)
+            # for token in lex:
+            #     print(token)

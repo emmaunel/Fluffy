@@ -13,5 +13,6 @@ a regular programming language with variable names, functions, and so on.
     Status
 	* Research(possibly gonna write in python)
 	* Interesting thing, the tokens are put into a tree(glad I paid attention in CS141)
+	* Add commands like clear and exit(to exit the interpreter)
 * Create a Parser
 * That's it for now
