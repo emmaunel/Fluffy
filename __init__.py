@@ -36,7 +36,6 @@ class Fluffy_Execute:
 
         if node[0] == 'if_stmt':
             result = self.walkTree(node[1])
-            # print("result " + result)
             if result:
                 return self.walkTree(node[2][1])
             return self.walkTree(node[2][2])

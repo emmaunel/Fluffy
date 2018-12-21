@@ -14,5 +14,8 @@ a regular programming language with variable names, functions, and so on.
 	* Research(possibly gonna write in python)
 	* Interesting thing, the tokens are put into a tree(glad I paid attention in CS141)
 	* Add commands like clear and exit(to exit the interpreter)
+	    * Done
 * Create a Parser
+    * Convert the tokens from the lexer into a tree and decide what each identifier is.
 * That's it for now
+ 
