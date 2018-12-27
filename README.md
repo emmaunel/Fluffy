@@ -28,6 +28,7 @@ python3.7 __init__.py to run the interpreter
           * Convert the tokens from the lexer into a tree and decide what each identifier is.
 
     -[ ] Create Parser
+    
         * Convert the tokens from the lexer into a tree and decide what each identifier is.
 
 
