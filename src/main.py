@@ -1,6 +1,10 @@
 from lexer import *
 from parser import *
 
+from src.lexer import Fluffy_Lexer
+from src.parser import Fluffy_Parser
+
+
 class Fluffy_Execute:
     def __init__(self, tree, env):
         self.env = env
@@ -9,7 +13,6 @@ class Fluffy_Execute:
             print(result)
         if isinstance(result, str) and result[0] == '"':
             print(result)
-
 
     def walkTree(self, node):
         if isinstance(node, int):
@@ -26,7 +29,6 @@ class Fluffy_Execute:
             else:
                 self.walkTree(node[1])
                 self.walkTree(node[2])
-
 
         if node[0] == 'num':
             return node[1]
@@ -62,7 +64,6 @@ class Fluffy_Execute:
         elif node[0] == 'div':
             return self.walkTree(node[1]) / self.walkTree(node[2])
 
-
         if node[0] == 'var_assign':
             self.env[node[1]] = self.walkTree(node[2])
             return node[1]
@@ -80,7 +81,7 @@ class Fluffy_Execute:
                 loop_count = self.env[loop_setup[0]]
                 loop_limit = loop_setup[1]
 
-                for i in range(loop_count+1, loop_limit+1):
+                for i in range(loop_count + 1, loop_limit + 1):
                     res = self.walkTree(node[2])
                     if res is not None:
                         print(res)
