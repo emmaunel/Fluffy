@@ -1,4 +1,4 @@
-# Fluffy_Language 🐰
+# Fluffy 🐰
 This is my own interpreter programming called Fluffy.
 
 # Background
