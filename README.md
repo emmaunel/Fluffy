@@ -21,8 +21,11 @@ python3.7 __init__.py to run the interpreter
 - **Front-end**
     - [x] Create Lexical analyzer
          * Research(possibly gonna write in python)
+         
 	    -[ ] Interesting thing, the tokens are put into a tree(glad I paid attention in CS141)(Add to Documentation)
+	   
 	    -[ ] Add commands like clear and exit(to exit the interpreter)
+   
     -[ ] Create Parser
         * Convert the tokens from the lexer into a tree and decide what each identifier is.
 
