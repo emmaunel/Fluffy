@@ -12,6 +12,8 @@
       <option name="ignoredIdentifiers">
         <list>
           <option value="src.main.lexer" />
+          <option value="lexer" />
+          <option value="constants" />
         </list>
       </option>
     </inspection_tool>
