@@ -19,8 +19,9 @@ python3.7 __init__.py to run the interpreter
  
  # Roadmap
 - **Front-end**
-    - [x] Create Lexical analyzer
-         * Research(possibly gonna write in python)
+    - [x] Create Lexical analyzer. Research(possibly gonna write in python)
+    - [ ] Add commands like clear and exit(to exit the interpreter)
+    - [ ] Create Parser
          
 	    -[ ] Interesting thing, the tokens are put into a tree(glad I paid attention in CS141)(Add to Documentation)
 	   
