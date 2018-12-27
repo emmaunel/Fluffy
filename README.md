@@ -25,8 +25,8 @@ python3.7 __init__.py to run the interpreter
         - [ ] Add commands like clear and exit(to exit the interpreter)
         - [ ] Interesting thing, the tokens can be put into a tree(Glad to paid attention in CS141, add to documentation)
     - [ ] Create Parser
-          * Convert the tokens from the lexer into a tree and decide what each identifier is.
-
+        * Convert
+        
     -[ ] Create Parser
     
         * Convert the tokens from the lexer into a tree and decide what each identifier is.
