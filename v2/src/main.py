@@ -1,7 +1,8 @@
 import os
 import sys
-import lexer
+from v2.src import Lexer
 import parser
+
 
 def main():
     content = ""
@@ -15,11 +16,11 @@ def main():
 
     if fileName[len(fileName) - 2:len(fileName)] != ".f":
         print("[ERROR] File extension not recognised please make sure extension is '.tn'")
-        return # quit program
+        return  # quit program
 
     try:
         print('[ERROR] Expected 1 argument found 2 (' + sys.argv[1] + ", " + sys.argv[2] + ')')
-        return # quit programme
+        return  # quit program
     except:
         pass
 
@@ -29,17 +30,9 @@ def main():
     except:
         print('Cannot find "' + fileName + '"')
 
-
-    print('|||||||||||||||||||||  LEXER LOG  ||||||||||||||||||||| \n')
-    lex = lexer.Lexer()
+    lex = Lexer.Lexer()
     tokens = lex.tokenize(content)
     print(tokens)
-    print('\n||||||||||||||||||||||||||||||||||||||||||||||||||||| \n')
 
-    print('|||||||||||||||||||||  PARSER LOG  ||||||||||||||||||||| \n')
-    Parser = parser.Parser(tokens)
-    source_ast = Parser.parse(tokens)
-    print(source_ast)
-    print('\n|||||||||||||||||||||||||||||||||||||||||||||||||||||| \n')
 
 main()
