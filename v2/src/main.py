@@ -1,7 +1,7 @@
 import os
 import sys
 from v2.src import Lexer
-import parser
+from v2.src import Parser
 
 
 def main():
@@ -32,7 +32,9 @@ def main():
 
     lex = Lexer.Lexer()
     tokens = lex.tokenize(content)
-    print(tokens)
+
+    parser = Parser.Parser(tokens)
+    source_ast = parser.parse(tokens)
 
 
 main()
