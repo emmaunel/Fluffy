@@ -12,10 +12,6 @@ a regular programming language with variable names, functions, and so on.
 
 > `Note:` Soon to be updated
 
-You must have at least python3.7 to run the interpreter.
-
-python3.7 __init__.py to run the interpreter
-
  
  # Roadmap
 - **Front-end**
@@ -33,5 +29,6 @@ python3.7 __init__.py to run the interpreter
     - [ ] Strong typing 
     
 - **Extra**
-    - [ ] Write all docmentations in detail `0%`
+    - [ ] Write all documentations in detail `0%`
+    - [ ] Use `v1` as the interpreter
 
