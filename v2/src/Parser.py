@@ -34,9 +34,9 @@ class Parser(object):
                 self.variable_deceleration_parsing(token_stream[self.token_index:len(token_stream)], False)
 
             # This will find the token pattern for an if statement
-            # elif token_type == "IDENTIFIER" and token_value == "if":
-            #     self.conditional_statement_parser(token_stream[self.token_index:len(token_stream)], False)
-            #
+            elif token_type == "IDENTIFIER" and token_value == "if":
+                self.conditional_statement_parser(token_stream[self.token_index:len(token_stream)], False)
+
             # # This will find the pattern started for a for loop
             elif token_type == "IDENTIFIER" and token_value == "for":
                 print("FOR BEFORE: ", self.token_index)
@@ -44,13 +44,14 @@ class Parser(object):
                 print("FOR AFTER: ", self.token_index)
 
             # # This will find the pattern for a built-in function call
-            # elif token_type == "IDENTIFIER" and token_value in constants.BUILT_IN_FUNCTIONS:
-            #     self.parse_built_in_function(token_stream[self.token_index:len(token_stream)], False)
-            #
-            # # This will find the pattern started for a comment
-            # elif token_type == "COMMENT_DEFINER" and token_value == "(**":
-            #     self.parse_comment(token_stream[self.token_index:len(token_stream)], False)
-            #
+            elif token_type == "IDENTIFIER" and token_value in constants.BUILT_IN_FUNCTIONS:
+                print("Here")
+                self.parse_built_in_function(token_stream[self.token_index:len(token_stream)], False)
+
+            # This will find the pattern started for a comment
+            elif token_type == "COMMENT_DEFINER" and token_value == "//":
+                self.parse_comment(token_stream[self.token_index:len(token_stream)], False)
+
             self.token_index += 1
         return self.source_ast
 
@@ -225,7 +226,8 @@ class Parser(object):
         for token in range(0, len(token_stream)):
 
             # Break out of loop whn statement end is found
-            if token_stream[token][0] == "STATEMENT_END": break
+            if token_stream[token][0] == "STATEMENT_END":
+                break
 
             # This will get the builtin function name
             if token == 0:
