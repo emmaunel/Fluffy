@@ -38,11 +38,11 @@ class Parser(object):
             #     self.conditional_statement_parser(token_stream[self.token_index:len(token_stream)], False)
             #
             # # This will find the pattern started for a for loop
-            # elif token_type == "IDENTIFIER" and token_value == "for":
-            #     #print("FOR BEFORE: ", self.token_index)
-            #     self.parse_for(token_stream[self.token_index:len(token_stream)], False)
-            #     #print("FOR AFTER: ", self.token_index)
-            #
+            elif token_type == "IDENTIFIER" and token_value == "for":
+                print("FOR BEFORE: ", self.token_index)
+                self.parse_for(token_stream[self.token_index:len(token_stream)], False)
+                print("FOR AFTER: ", self.token_index)
+
             # # This will find the pattern for a built-in function call
             # elif token_type == "IDENTIFIER" and token_value in constants.BUILT_IN_FUNCTIONS:
             #     self.parse_built_in_function(token_stream[self.token_index:len(token_stream)], False)
@@ -56,34 +56,54 @@ class Parser(object):
 
     # TODO: Create one function for all the loops(while, for, switch)
     def parse_for(self, token_stream, isInBody):
+        """
+        This function parse for loops
+        :param token_stream: All the tokens from the lexer
+        :param isInBody: Tells if the function has been checked or not
+        :return:
+        """
+
         ast = {'ForLoop': []}
+
+        # Start the parsing at index 1 so it ignores the word 'for
         tokens_checked = 1
+
+        # Indicates when it in the condition part(for int x = 0 -> < 10) and when it's in the incrementation part
         loopSection = 1
         while tokens_checked < len(token_stream):
-            if token_stream[tokens_checked][1] == '{': break
+
+            # When it gets to the opening bracket, break out of the loop
+            if token_stream[tokens_checked][1] == '{':
+                break
 
             if tokens_checked == 1:
+                # Gets the tokens before the first separator ->
                 var_decl_tokens = self.get_token_to_matcher("->", "{", token_stream[tokens_checked:len(token_stream)])
-                # Perform error handling to see if the tokens could be fetched and the seperator '::' was found
-                if var_decl_tokens == False:
-                    self.send_error_message("Loop missing seperator '->'", token_stream)
 
-                # Manually append statement end to the end of the var decleration so var parser behaves and doesnt throw error
+                # Perform error handling to see if the tokens could be fetched and the separator '::' was found
+                if not var_decl_tokens:
+                    self.send_error_message("Loop missing separator '->'", token_stream)
+
+                # Manually append statement end to the end of the var deceleration so var parser behaves and doesnt
+                # throw error
                 var_decl_tokens[0].append(['STATEMENT_END', ';'])
-                var_parsing = self.variable_decleration_parsing(var_decl_tokens[0], True)
+                var_parsing = self.variable_deceleration_parsing(var_decl_tokens[0], True)
+
                 # Append initialValueName property to the ForLoop AST
-                # Call the variable parser with True so the var decleration isn't added to source_ast
-                ast['ForLoop'].append({'initialValueName': var_parsing[0]['VariableDecleration'][1]['name']})
+                # Call the variable parser with True so the var deceleration isn't added to source_ast
+                ast['ForLoop'].append({'initialValueName': var_parsing[0]['VariableDeceleration'][1]['name']})
                 # Append initialValue property to the ForLoop AST
-                ast['ForLoop'].append({'initialValue': var_parsing[0]['VariableDecleration'][2]['value']})
+                ast['ForLoop'].append({'initialValue': var_parsing[0]['VariableDeceleration'][2]['value']})
                 # Increase tokens checked count and minus 1 because we manually add the STATEMENT_END token
                 self.token_index -= var_decl_tokens[1]
-            if token_stream[tokens_checked][1] == '::':
+
+            if token_stream[tokens_checked][1] == '->':
 
                 # This will handle the parsing for loop section 1 which is the ConditionForLoop such as x < 10
                 if loopSection == 1:
                     condition_tokens = self.get_token_to_matcher('->', '{',
                                                                  token_stream[tokens_checked + 1:len(token_stream)])
+
                     ast['ForLoop'].append({'comparison': condition_tokens[0][1][1]})
                     ast['ForLoop'].append({'endValue': condition_tokens[0][1][1]})
                     tokens_checked += condition_tokens[1]
@@ -142,7 +162,8 @@ class Parser(object):
         for token in token_stream:
             tokens_checked += 1
             # If the terminating matcher is found then return False as it means scope we allow for the check is reached
-            if token[1] == terminating_matcher: return False
+            if token[1] == terminating_matcher:
+                return False
             # If the token matcher is found then return all the tokens found before it or else append the tokens to var
             if token[1] == matcher:
                 return [tokens, tokens_checked - 1]
