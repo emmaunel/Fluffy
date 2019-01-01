@@ -29,7 +29,7 @@ to put them in their respective datatype which ends up like this:
     
     ['DATATYPE', 'int']
    
-There is a list of availble datatype located at [constants.py](./v2/src/constants.py)  And what I do is loop through that list and if 
+There is a list of availble datatype located at [constants.py](https://github.com/emmaunel/Fluffy_Language/blob/master/v2/src/constants.py)  And what I do is loop through that list and if 
 a string in the source file is in that list, it creates the tokens as showed above.
 
     if word in constants.DATATYPE:
