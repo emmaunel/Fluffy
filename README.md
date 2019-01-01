@@ -29,6 +29,6 @@ a regular programming language with variable names, functions, and so on.
     - [ ] Strong typing 
     
 - **Extra**
-    - [ ] Write all documentations in detail `0%`
+    - [ ] Write all documentations in detail `10%`
     - [ ] Use `v1` as the interpreter
 
