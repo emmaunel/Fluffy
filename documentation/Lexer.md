@@ -92,4 +92,47 @@ as a `STATEMENT_END` token. So at the end, if a number like `21;`, it will retur
     ["INTEGER", 21], ["STATEMENT_END", ';'], 
 
     
-> TO BE CONTINUED
+# Scope Definer
+
+The scope definer are `{` and `}` just like in java. They are used to identify function, conditionals and loops.
+The token generated is:
+
+    ['SCOPE_DEFINER', '{']
+    
+It is done like this:
+
+    if word in "{}":
+        tokens.append(['SCOPE_DEFINER', word])
+        
+
+# Strings
+
+### Implementation of string token analysis
+
+The following code snippet is a call to the getMatcher method to get the string and return it but what this snippet does extra is check the return to see how to behave.
+
+      # Identify any strings which are surrounded in  ""
+      elif ('"') in word: 
+
+          # Call the getMatcher() method to get the full string
+          matcherReturn = self.getMatcher('"', source_index, source_code)
+
+          # If the string was in one source code item then we can just append it
+          if matcherReturn[1] == '': tokens.append("[STRING " + matcherReturn[0] + "]")
+
+          # If the string was spread out across multiple source code item
+          else:
+
+              # Append the string token
+              tokens.append("[STRING " + matcherReturn[0] + "]")
+                    
+              # Check for a semicolon at the end of thee string and if there is one then add end statament
+              if ';' in matcherReturn[1]: tokens.append("[STATEMENT_END ;]")
+
+              # Skip all the already checked string items so there are no duplicates
+              source_index += matcherReturn[2]
+
+              # Skip every other check and loop again
+              pass
+
+
