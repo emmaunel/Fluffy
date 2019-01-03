@@ -8,6 +8,13 @@ I wanted Fluffy to be just like chicken except its tokens are different varient 
 the word Fluffy(e.g Fluffy, fluffY, FLuffy). But at the moment, it would be like
 a regular programming language with variable names, functions, and so on.
 
+# Code Sample
+
+> A preview of the syntax which tachyon supports in `version 2`
+
+![Fluffy Syntax v2](./img/code_sample.png)
+
+
 # Installation
 
 ### Mac & Linux
