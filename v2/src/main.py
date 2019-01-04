@@ -2,6 +2,7 @@ import os
 import sys
 from v2.src import Lexer
 from v2.src import Parser
+from v2.src import objgen
 
 
 def main():
@@ -35,6 +36,14 @@ def main():
 
     parser = Parser.Parser(tokens)
     source_ast = parser.parse(tokens)
+
+    object_gene = objgen.ObjectGenerator(source_ast)
+    exec_string = object_gene.object_generation(False)
+
+    print(exec_string)
+    #exec(exec_string)
+
+
 
 
 main()

@@ -1,7 +1,9 @@
 int count = 9;
 int a = 11;
-str name = "Ayo";
-print name;
+str nam = "Ayo";
+print nam;
+
+
 for int x = 0 -> > 10 -> + 1 {
   print "Hi My name";
 }
