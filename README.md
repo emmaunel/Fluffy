@@ -1,4 +1,4 @@
-# Fluffy 🐰
+# Fluffy 🐰  ![](https://img.shields.io/badge/Fluffy-v2-brightgreen.svg)
 This is my own interpreter programming called Fluffy.
 
 # Background
@@ -26,7 +26,7 @@ a regular programming language with variable names, functions, and so on.
 
  
  # Roadmap
-- **Front-end**
+- **Front-end**  ![](https://img.shields.io/badge/progress-75%25-green.svg)
     - [x] Create Lexical analyzer. 
         * Research(possibly gonna write in python)
         - [ ] Add commands like clear and exit(to exit the interpreter)
@@ -35,13 +35,13 @@ a regular programming language with variable names, functions, and so on.
         * Convert the tokens from a lexer into a tree and decide what each identifier is.
         
 
-- **Backend**
+- **Backend**   ![](https://img.shields.io/badge/progress-33.3%25-red.svg)
     - [ ] Code generation `Current`
     - [ ] Optimisation 
     - [X] Strong typing 
     
-- **Extra**
-    - [ ] Write all documentations in detail `25%`
+- **Extra**   ![](https://img.shields.io/badge/Fluffy-33.3%25-red.svg)
+    - [ ] Write all documentations in detail `25%`   ![](https://img.shields.io/badge/Fluffy-25%25-red.svg)
     - [ ] Use `v1` as the interpreter
     - [ ] `v3` would be all the word fluffy
 
