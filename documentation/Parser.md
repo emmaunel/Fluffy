@@ -66,8 +66,35 @@ the sequence of tokens into abstract syntax trees.
 - `source_ast (dict)`
     - This will return the full source code ast
     
-This method tries to idntify a patter of tokens that
- make up a pasre tree for example a variable would
- be recognixed if the parse method stumbled across
- a datatype toke (`['DATATYPE', 'str']`),
-    
+This method tries to identify a patter of tokens that
+ make up a parse tree for example a variable would
+ be recognised if the parse method stumbled across
+ a datatype toke (`['DATATYPE', 'str']`), it would know
+ it is a variable deceleration and calls the `variable_deceleration_parising()`
+ passing in the token stream from where the data type was
+ found with the rest of the tokens and will also
+ pass in false because this parsing isn't called from 
+ a body statement parser. This is how it look in code:
+ 
+    if token_type == "DATATYPE":
+        self.variable_deceleration_parsing(token_stream[self.token_index:
+        len(token_stream)], False)
+ 
+This is then repeated for all the tokens in the source code 
+to find patterns and create AST's from them. Once all this is
+done, the method checked for an error messages like this:
+
+    if self.error_messages != []:
+        self.send_error_message(self.error_messages)
+        
+This checks if the error message array is empty and if so no
+errors occurred during parsing but if there is then error 
+messages will all be displayed in hierarchy order from first
+to last.
+
+Finally, the method then returns the `source_ast` so that
+ it can then be used by the ObjectGenerator `objgen.py` to 
+ make the Objects for the different AST's and
+ transpile them into python.
+ 
+ ---   
