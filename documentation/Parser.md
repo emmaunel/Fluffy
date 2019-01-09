@@ -97,4 +97,15 @@ Finally, the method then returns the `source_ast` so that
  make the Objects for the different AST's and
  transpile them into python.
  
- ---   
+ ---
+ 
+ ## `parse_built_in_function()`
+ 
+ This will parse built in methods and their parameters
+ to form an AST.
+ 
+**Arguments**
+
+ 
+ 
+ 
