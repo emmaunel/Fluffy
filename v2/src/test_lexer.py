@@ -1,4 +1,4 @@
-import lexer
+import Lexer
 
 def main(file_name):
     with open(file_name) as inFile:

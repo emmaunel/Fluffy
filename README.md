@@ -1,6 +1,10 @@
 # Fluffy 🐰  ![](https://img.shields.io/badge/Fluffy-v2-brightgreen.svg)
 This is my own interpreter programming called Fluffy.
 
+# UPDATE!!!!
+Fluffy v2 is broken like so broken I can't fix it. So I'm just going to jump to next plan in line which 
+is to rewrite the whole thing in C. Let's goooooo.
+
 # Background
 
 Fluffy was inspired by the language 'Chicken' which is an esoteric programming language.
@@ -30,7 +34,7 @@ a regular programming language with variable names, functions, and so on.
     - [x] Create Lexical analyzer. 
         * Research(possibly gonna write in python)
         - [ ] Add commands like clear and exit(to exit the interpreter)
-        - [X] Interesting thing, the tokens can be put into a tree(Glad to paid attention in CS141, add to documentation)
+        - [X] Interesting thing, the tokens can be put into a tree(Glad I paid attention in CS141, add to documentation)
     - [X] Create Parser
         * Convert the tokens from a lexer into a tree and decide what each identifier is.
         

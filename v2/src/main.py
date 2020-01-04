@@ -1,8 +1,8 @@
 import os
 import sys
-from v2.src import Lexer
-from v2.src import Parser
-from v2.src import objgen
+import Lexer
+import Parser
+import objgen
 
 
 def main():
