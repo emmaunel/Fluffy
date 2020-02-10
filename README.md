@@ -3,7 +3,7 @@ This is my own interpreter programming called Fluffy.
 
 # UPDATE!!!!
 Fluffy v2 is broken like so broken I can't fix it. So I'm just going to jump to next plan in line which 
-is to rewrite the whole thing in C. Let's goooooo.
+is to rewrite the whole thing in Go. Let's goooooo.
 
 # Background
 
