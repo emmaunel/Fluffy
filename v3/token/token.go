@@ -3,11 +3,11 @@ package token
 const (
 
 	// Data types
-	int
-	str
-	bool
-	void
-	char
+	Int
+	Str
+	Bool
+	Void
+	Char
 
 	// statement endings
 	Newline
@@ -34,6 +34,11 @@ const (
 	For
 	Break
 	Continue
+	True
+	False
+	Fun
+	Null
+	Exit
 
 
 )
